@@ -1,0 +1,51 @@
+{
+  "name": "owebsync-js",
+  "version": "0.1.0",
+  "description": "Seamless Synchronization of Distributed Web Clients",
+  "homepage": "https://distrinet.cs.kuleuven.be/software/owebsync/",
+  "bugs": "https://github.com/kristofjannes/owebsync-js/issues",
+  "license": "cc0-1.0",
+  "author": "Kristof Jannes <kristof@kristofjannes.com> (https://kristofjannes.com)",
+  "repository": "github:kristofjannes/owebsync-js",
+  "main": "dist/owebsync-nodejs.js",
+  "browser": "dist/owebsync-browser.js",
+  "types": "src/core/types.d.ts",
+  "files": [
+    "dist/**/*",
+    "src/**/*",
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "build-demo": "docker build -t owebsync.azurecr.io/demo:1.0.1 -f demo/Dockerfile ."
+  },
+  "dependencies": {
+    "leveldown": "6.1.0",
+    "levelup": "5.1.1",
+    "ws": "8.3.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "13.0.6",
+    "@types/leveldown": "4.0.3",
+    "@types/levelup": "4.3.3",
+    "@types/ws": "8.2.0",
+    "husky": "7.0.4",
+    "idb-keyval": "6.0.3",
+    "lint-staged": "12.1.2",
+    "prettier": "2.4.1",
+    "rimraf": "3.0.2",
+    "rollup": "2.60.1",
+    "rollup-plugin-es6-class-minify": "2.0.0",
+    "rollup-plugin-terser": "7.0.2",
+    "rollup-plugin-typescript2": "0.31.1",
+    "typescript": "4.5.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,md,ts,html}": "prettier --write"
+  }
+}

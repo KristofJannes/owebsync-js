@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>OWebsync Demo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      body {
+        background: #eee;
+        font-family: system-ui, "Roboto", sans-serif;
+        margin: 0;
+        user-select: none;
+      }
+
+      .menu {
+        background: #1d8db0;
+        display: flex;
+        height: 64px;
+        width: 100%;
+      }
+
+      .title {
+        color: #fff;
+        font-size: 32px;
+        line-height: 56px;
+        padding-left: 12px;
+        padding-right: 24px;
+      }
+
+      .docs {
+        margin-left: auto;
+        margin-right: 16px;
+      }
+
+      .docs > a {
+        color: #fff;
+        display: flex;
+        font-size: 24px;
+        line-height: 56px;
+        text-decoration: none;
+      }
+
+      .docs svg {
+        margin-right: 8px;
+        margin-top: 18px;
+      }
+
+      .toolbar {
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        top: 64px;
+        width: 48px;
+      }
+
+      .distrinet {
+        bottom: 16px;
+        height: 64px;
+        position: fixed;
+        right: 16px;
+      }
+
+      img {
+        height: 100%;
+      }
+
+      .button {
+        background: white;
+        border-radius: 4px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        cursor: pointer;
+        height: 36px;
+        line-height: 36px;
+        margin-left: 8px;
+        margin-top: 12px;
+        padding-left: 8px;
+        padding-right: 8px;
+        text-align: center;
+      }
+
+      .iconButton {
+        color: #006994;
+        font-size: 20px;
+        padding: 0;
+        width: 36px;
+      }
+
+      .divider {
+        background: #111;
+        height: 1px;
+        margin-left: 8px;
+        margin-top: 12px;
+        padding-left: 8px;
+        padding-right: 8px;
+        width: 20px;
+      }
+
+      .options {
+        display: none;
+      }
+
+      #btnColor1 {
+        background: #4a9cc2;
+      }
+
+      #btnColor2 {
+        background: #4bc3ad;
+      }
+
+      #btnColor3 {
+        background: #006994;
+      }
+
+      #btnColor4 {
+        background: #afdff9;
+      }
+
+      #btnColor5 {
+        background: #9dc34b;
+      }
+
+      #btnColor6 {
+        background: #c34b61;
+      }
+
+      #btnColor7 {
+        background: #714bc3;
+      }
+
+      #c {
+        background: #fafafa;
+        height: 720px;
+        width: 1280px;
+      }
+
+      .canvas-container {
+        box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+          0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+          0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+        margin-left: auto;
+        margin-right: auto;
+        overflow-x: overlay;
+        width: initial !important;
+      }
+
+      @media (min-width: 1280px) {
+        .canvas-container {
+          margin-top: 16px;
+          width: 1280px !important;
+        }
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:500"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="menu">
+      <div class="title">OWebSync Demo</div>
+      <div class="docs">
+        <a
+          href="https://distrinet.cs.kuleuven.be/software/owebsync/"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#ffffff"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+            />
+          </svg>
+          <span>Docs</span>
+        </a>
+      </div>
+    </div>
+    <canvas id="c"></canvas>
+    <div class="toolbar">
+      <div class="button iconButton" id="btnAddRect">■</div>
+      <div class="button iconButton" id="btnAddCircle">●</div>
+      <div class="button iconButton" id="btnAddTriangle">▲</div>
+
+      <div class="options">
+        <div class="divider"></div>
+        <div class="button iconButton" id="btnRemove">❌</div>
+        <div class="button iconButton" id="btnColor1"></div>
+        <div class="button iconButton" id="btnColor2"></div>
+        <div class="button iconButton" id="btnColor3"></div>
+        <div class="button iconButton" id="btnColor4"></div>
+        <div class="button iconButton" id="btnColor5"></div>
+        <div class="button iconButton" id="btnColor6"></div>
+        <div class="button iconButton" id="btnColor7"></div>
+      </div>
+    </div>
+
+    <div class="distrinet">
+      <a href="https://distrinet.cs.kuleuven.be/" target="_blank">
+        <img src="DistriNet-KULeuven-logo.png" />
+      </a>
+    </div>
+
+    <script src="fabric.min.js"></script>
+    <script src="owebsync-browser.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

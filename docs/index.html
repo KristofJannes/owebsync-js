@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>OWebSync: Seamless Synchronization of Distributed Web Clients</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link
+      rel="preload"
+      href="fonts/FiraGO-Regular.subset.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/FiraGO-Bold.subset.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/FiraCode-Regular.subset.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a
+          href="https://github.com/KristofJannes/owebsync-js"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="nav-item">
+            <img src="images/github.svg" />
+            <span>Github</span>
+          </div>
+        </a>
+        <a
+          href="https://owebsync.azurewebsites.net/"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="nav-item">
+            <img src="images/open_in_new.svg" />
+            <span>Demo</span>
+          </div>
+        </a>
+      </nav>
+      <div class="hero">
+        <h1>OWebSync</h1>
+        <h2>
+          Seamless Synchronization of<br />
+          Distributed Web Clients
+        </h2>
+        <div>
+          <a
+            href="https://distrinet.cs.kuleuven.be/"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              alt="distrinet"
+              class="logo"
+              loading="lazy"
+              src="images/distrinet.svg"
+            />
+          </a>
+          <a
+            href="https://www.kuleuven.be/english/"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              alt="kuleuven"
+              class="logo"
+              loading="lazy"
+              src="images/kuleuven.svg"
+            />
+          </a>
+        </div>
+      </div>
+    </header>
+    <section id="features">
+      <a href="#features">
+        <h3>
+          <span>#</span>
+          <span>Features</span>
+        </h3>
+      </a>
+
+      <p>
+        OWebSync is a framework that lets you store and sync data between your
+        users.
+      </p>
+
+      <h4 class="icon">
+        <img src="images/sync.svg" />
+        <span>Interactive synchronization</span>
+      </h4>
+      <p>Data is synchronized with other clients in near-realtime.</p>
+
+      <h4 class="icon">
+        <img src="images/mediation.svg" />
+        <span>Conflict-free collaboration across devices</span>
+      </h4>
+      <p>
+        Interactive synchronization makes it easy for users to access their data
+        from any device, and to collaborate with each other. Conflicts are
+        automatically resolved using Conflict-free Replicated Data Types which
+        provide Strong Eventual Consistency.
+      </p>
+
+      <h4 class="icon">
+        <img src="images/offline.svg" />
+        <span>Offline usage</span>
+      </h4>
+      <p>
+        No internet connection? No problem! Data is stored locally and changes
+        will be synchronized once you're back online.
+      </p>
+
+      <h4 class="icon">
+        <img src="images/share.svg" />
+        <span>Peer-to-peer synchronization</span>
+      </h4>
+      <p>
+        Clients synchronize changes directly with each other via WebRTC, making
+        OWebSync faster, more scalable and more resilient.
+      </p>
+    </section>
+    <section id="usage">
+      <a href="#usage">
+        <h3>
+          <span>#</span>
+          <span>Basic usage</span>
+        </h3>
+      </a>
+
+      <h4>NodeJS server</h4>
+      <code>
+        <span class="code-keyword">const&nbsp;</span
+        ><span class="code-var">OWebSync</span
+        ><span class="code-op">&nbsp;=&nbsp;</span
+        ><span class="code-fun">require</span><span class="code-op">(</span
+        ><span class="code-str">"owebsync-js"</span
+        ><span class="code-op">);</span>
+        <br />
+
+        <span class="code-keyword">const&nbsp;</span
+        ><span class="code-var">server</span
+        ><span class="code-op">&nbsp;=&nbsp;</span
+        ><span class="code-var">http</span><span class="code-op">.</span
+        ><span class="code-fun">createServer</span
+        ><span class="code-op">();</span>
+        <br />
+
+        <span class="code-fun">OWebSync</span><span class="code-op">(</span
+        ><span class="code-var">server</span><span class="code-op">);</span>
+        <br />
+
+        <span class="code-var">server</span><span class="code-op">.</span
+        ><span class="code-fun">listen</span><span class="code-op">(</span
+        ><span class="code-num">8080</span><span class="code-op">);</span>
+        <br />
+      </code>
+
+      <h4>Browser clients</h4>
+      <code>
+        <span class="code-html-bracket">&lt;</span
+        ><span class="code-keyword">script&nbsp;</span
+        ><span class="code-html-attr">src=</span
+        ><span class="code-str">"owebsync-browser.js"</span
+        ><span class="code-html-bracket">&gt;&lt;/</span
+        ><span class="code-keyword">script</span
+        ><span class="code-html-bracket">&gt;</span>
+        <br />
+
+        <span class="code-html-bracket">&lt;</span
+        ><span class="code-keyword">script</span
+        ><span class="code-html-bracket">&gt;</span>
+        <br />
+
+        <span class="code-fun">&nbsp;&nbsp;OWebSync</span
+        ><span class="code-op">(</span
+        ><span class="code-str">"ws://localhost:8080"</span
+        ><span class="code-op">).</span><span class="code-fun">then</span
+        ><span class="code-op">(</span
+        ><span class="code-keyword">async&nbsp;</span
+        ><span class="code-op">(</span><span class="code-var">owebsync</span
+        ><span class="code-op">)</span
+        ><span class="code-keyword">&nbsp;=>&nbsp;</span
+        ><span class="code-op">{</span>
+        <br />
+
+        <span class="code-flow">&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;</span
+        ><span class="code-var">owebsync</span><span class="code-op">.</span
+        ><span class="code-fun">set</span><span class="code-op">(</span
+        ><span class="code-str">"drawing1.object36.color"</span
+        ><span class="code-op">,&nbsp;</span><span class="code-str">"#f00"</span
+        ><span class="code-op">);</span>
+        <br />
+
+        <span class="code-op">&nbsp;&nbsp;}</span>
+        <br />
+
+        <span class="code-html-bracket">&lt;/</span
+        ><span class="code-keyword">script</span
+        ><span class="code-html-bracket">&gt;</span>
+        <br />
+      </code>
+    </section>
+    <section id="api">
+      <a href="#api">
+        <h3>
+          <span>#</span>
+          <span>API</span>
+        </h3>
+      </a>
+
+      <h4>owebsync-browser</h4>
+      <p>
+        Create a new <span class="code">OWebSync</span> object by calling the
+        function below. It will connect to an
+        <span class="code">owebsync-nodejs</span> instance on the given
+        <span class="code">webSocketURL</span>.
+      </p>
+      <code>
+        <span class="code-keyword">function&nbsp;</span
+        ><span class="code-fun">OWebSync</span><span class="code-op">(</span>
+        <br />
+
+        <span class="code-var">&nbsp;&nbsp;webSocketURL</span
+        ><span class="code-op">:&nbsp;</span
+        ><span class="code-type">string</span><span class="code-op">,</span>
+        <br />
+
+        <span class="code-var">&nbsp;&nbsp;options</span
+        ><span class="code-op">?:&nbsp;{</span>
+        <br />
+        <span class="code-var">&nbsp;&nbsp;&nbsp;&nbsp;noWebRTC</span
+        ><span class="code-op">?:&nbsp;</span
+        ><span class="code-type">boolean</span><span class="code-op">;</span>
+        <br />
+        <span class="code-var">&nbsp;&nbsp;&nbsp;&nbsp;iceServers</span
+        ><span class="code-op">?:&nbsp;</span
+        ><span class="code-type">RTCIceServer</span
+        ><span class="code-op">[];</span>
+        <br />
+        <span class="code-op">&nbsp;&nbsp;}</span>
+        <br />
+
+        <span class="code-op">):&nbsp;</span
+        ><span class="code-type">Promise</span><span class="code-op"><</span
+        ><span class="code-type">OWebSync</span><span class="code-op">></span>
+      </code>
+
+      <h4>owebsync-nodejs</h4>
+      <p>
+        Create a new <span class="code">OWebSync</span> object by calling below
+        function. It will listen for WebSocket connections from
+        <span class="code">owebsync-browser</span> instances.
+      </p>
+      <code>
+        <span class="code-keyword">function&nbsp;</span
+        ><span class="code-fun">OWebSync</span><span class="code-op">(</span
+        ><span class="code-var">server</span><span class="code-op">:&nbsp;</span
+        ><span class="code-type">http</span><span class="code-op">.</span
+        ><span class="code-type">Server</span
+        ><span class="code-op">):&nbsp;</span
+        ><span class="code-type">Promise</span><span class="code-op"><</span
+        ><span class="code-type">OWebSync</span><span class="code-op">></span>
+      </code>
+
+      <h4>OWebSync</h4>
+      <p>
+        The <span class="code">OWebSync</span> object provides the following
+        functions:
+      </p>
+
+      <h5>Get</h5>
+      <p>
+        Retrieve the JSON object at the given path. For performance reasons,
+        limit the size of the JSON object that will be returned by specifying
+        the most qualified path that satisfies your needs.
+      </p>
+      <code>
+        <span class="code-fun">get</span><span class="code-op">(</span
+        ><span class="code-var">path</span><span class="code-op">:&nbsp;</span
+        ><span class="code-type">string</span
+        ><span class="code-op">):&nbsp;</span
+        ><span class="code-type">Promise</span><span class="code-op"><</span
+        ><span class="code-type">unknown</span><span class="code-op">></span>
+      </code>
+
+      <h5>Listen</h5>
+      <p>
+        The given callback will be called with the JSON object at the given path
+        each time the object changes. The first time, the callback will be
+        called with the current JSON object.
+      </p>
+      <code>
+        <span class="code-fun">listen</span><span class="code-op">(</span
+        ><span class="code-var">path</span><span class="code-op">:&nbsp;</span
+        ><span class="code-type">string</span
+        ><span class="code-op">,&nbsp;</span
+        ><span class="code-var">callback</span
+        ><span class="code-op">:&nbsp;(</span><span class="code-var">o</span
+        ><span class="code-op">:&nbsp;</span
+        ><span class="code-type">unknown</span
+        ><span class="code-op">)&nbsp;</span
+        ><span class="code-keyword">=>&nbsp;</span
+        ><span class="code-type">void</span><span class="code-op">):&nbsp;</span
+        ><span class="code-type">Promise</span><span class="code-op"><</span
+        ><span class="code-type">void</span><span class="code-op">></span>
+      </code>
+
+      <h5>Set</h5>
+      <p>
+        Update the JSON object at the given path. For performance reasons, limit
+        the size of the JSON object. The value can be one of
+        <span class="code">string, number, boolean, object</span>. An
+        <span class="code">object</span> is a mapping from
+        <span class="code">string</span> to
+        <span class="code">string, number, boolean, object</span>.
+        <br />
+        Although arrays are part of the JSON specification, they are not
+        supported by OWebSync.
+      </p>
+      <code>
+        <span class="code-fun">set</span><span class="code-op">(</span
+        ><span class="code-var">path</span><span class="code-op">:&nbsp;</span
+        ><span class="code-type">string</span
+        ><span class="code-op">,&nbsp;</span><span class="code-var">value</span
+        ><span class="code-op">:&nbsp;</span
+        ><span class="code-type">unknown</span
+        ><span class="code-op">):&nbsp;</span
+        ><span class="code-type">Promise</span><span class="code-op"><</span
+        ><span class="code-type">void</span><span class="code-op">></span>
+      </code>
+
+      <h5>Del</h5>
+      <p>Delete the JSON object at the given path.</p>
+      <code>
+        <span class="code-fun">del</span><span class="code-op">(</span
+        ><span class="code-var">path</span><span class="code-op">:&nbsp;</span
+        ><span class="code-type">string</span
+        ><span class="code-op">):&nbsp;</span
+        ><span class="code-type">Promise</span><span class="code-op"><</span
+        ><span class="code-type">void</span><span class="code-op">></span>
+      </code>
+
+      <h5>GetUUID</h5>
+      <p>
+        Utility function to generate unique IDs. This can be a good replacement
+        for an array. Instead of using an array, you can use an
+        <span class="code">object</span> where the keys are unique IDs. The
+        ordering can then be defined in the application code.
+      </p>
+      <code>
+        <span class="code-fun">getUUID</span><span class="code-op">(</span
+        ><span class="code-op">):&nbsp;</span
+        ><span class="code-type">Promise</span><span class="code-op"><</span
+        ><span class="code-type">string</span><span class="code-op">></span>
+      </code>
+    </section>
+    <section id="references">
+      <a href="#references">
+        <h3>
+          <span>#</span>
+          <span>References</span>
+        </h3>
+      </a>
+      <div>
+        Kristof Jannes, Bert Lagaisse and Wouter Joosen, "OWebSync: Seamless
+        Synchronization of Distributed Web Clients," in
+        <i>IEEE Transactions on Parallel and Distributed Systems</i>, vol. 32,
+        no. 9, pp. 2338-2351, 1 Sept. 2021.
+        <div class="references-links">
+          <a
+            class="color"
+            href="https://doi.org/10.1109/TPDS.2021.3066276"
+            target="_blank"
+            rel="noopener"
+          >
+            DOI
+          </a>
+          <a
+            class="color"
+            href="https://kristofjannes.com/papers/tpds_owebsync.pdf"
+            target="_blank"
+            rel="noopener"
+          >
+            PDF
+          </a>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <a
+        rel="license"
+        href="https://creativecommons.org/publicdomain/zero/1.0/"
+        target="_blank"
+        rel="noopener"
+      >
+        <img alt="CC0" src="images/cc0.png" loading="lazy" />
+      </a>
+      OWebSync is created by
+      <a
+        class="color"
+        href="https://kristofjannes.com/"
+        target="_blank"
+        rel="noopener"
+      >
+        Kristof Jannes
+      </a>
+      at
+      <a
+        class="color"
+        href="https://distrinet.cs.kuleuven.be/"
+        target="_blank"
+        rel="noopener"
+      >
+        imec-DistriNet - KU Leuven
+      </a>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,223 @@
+@font-face {
+  font-display: block;
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/FiraGO-Regular.subset.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: block;
+  font-family: "FiraGO";
+  font-style: normal;
+  font-weight: 700;
+  src: url("fonts/FiraGO-Bold.subset.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: block;
+  font-family: "FiraCode";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/FiraCode-Regular.subset.woff2") format("woff2");
+}
+
+body {
+  color: rgba(0, 0, 0, 0.89);
+  font-family: "FiraGO", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0;
+  scroll-behavior: smooth;
+  user-select: none;
+}
+
+:root {
+  --distrinet: #4a9cc2;
+}
+
+::selection {
+  color: rgba(0, 0, 0, 0.89);
+  background: var(--distrinet);
+}
+
+a {
+  color: rgba(0, 0, 0, 0.89);
+  text-decoration: none;
+}
+
+a.color {
+  color: var(--distrinet);
+}
+
+header {
+  padding-bottom: 96px;
+  padding-left: 16px;
+  padding-top: 16px;
+}
+
+nav {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.nav-item {
+  display: flex;
+  height: 48px;
+  line-height: 48px;
+  padding-right: 32px;
+}
+
+.nav-item > img {
+  height: 24px;
+  margin-right: 8px;
+  margin-top: 12px;
+  width: 24px;
+}
+
+h1 {
+  color: var(--distrinet);
+  font-size: 60px;
+}
+
+h2 {
+  font-size: 48px;
+}
+
+h3 {
+  font-size: 34px;
+  margin-left: -28px;
+}
+
+h3 > span:first-child {
+  visibility: hidden;
+}
+
+h3:hover > span:first-child {
+  visibility: visible;
+}
+
+.hero {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+  padding-bottom: 64px;
+  padding-top: 64px;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 16px;
+  margin-top: 32px;
+}
+
+section {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+  padding-bottom: 96px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h4.icon {
+  display: flex;
+}
+
+h4.icon > img {
+  margin-right: 8px;
+}
+
+h5 {
+  font-size: 20px;
+  margin-block-end: 1em;
+  margin-block-start: 2em;
+}
+
+.references-links {
+  display: flex;
+}
+
+.references-links > a {
+  font-size: 18px;
+  padding-left: 0px;
+  padding-right: 16px;
+  padding-top: 8px;
+}
+
+code {
+  background: #1e1e1e;
+  border-radius: 4px;
+  display: block;
+  font-family: FiraCode;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  overflow-x: auto;
+  padding: 12px;
+  user-select: text;
+  word-break: normal;
+  white-space: nowrap;
+}
+
+.code {
+  font-family: FiraCode;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.code-html-bracket {
+  color: #808080;
+}
+
+.code-html-attr {
+  color: #9cdcfe;
+}
+
+.code-fun {
+  color: #dcdcaa;
+}
+
+.code-keyword {
+  color: #569cd6;
+}
+
+.code-op {
+  color: #d4d4d4;
+}
+
+.code-flow {
+  color: #c586c0;
+}
+
+.code-str {
+  color: #ce9178;
+}
+
+.code-num {
+  color: #b5cea8;
+}
+
+.code-var {
+  color: #9cdcfe;
+}
+
+.code-type {
+  color: #4ec9b0;
+}
+
+footer {
+  line-height: 31px;
+  margin-bottom: 16px;
+  margin-top: 64px;
+  text-align: center;
+}
+
+a[rel="license"] > img {
+  margin-bottom: -8px;
+  margin-right: 6px;
+}
